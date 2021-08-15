@@ -3,6 +3,8 @@ import './App.css';
 import { FormControl, MenuItem, Select, CardContent, Card} from '@material-ui/core';
 import InfoBox from './InfoBox';
 import Table from './Table';
+import {sortData} from "./util"
+
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -29,7 +31,9 @@ function App() {
             value: country.countryInfo.iso2
         }))
 
-        setTableData(data)
+        const sortedData = sortData(data)
+
+        setTableData(sortedData)
         setCountries(countries)
       })   
     }
